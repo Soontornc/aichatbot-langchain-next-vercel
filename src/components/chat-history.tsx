@@ -142,7 +142,7 @@ export function ChatHistory({ sessionId, title, userId }: ChatHistoryProps) {
     input,                                                                   // ข้อความที่ผู้ใช้พิมพ์ปัจจุบัน
     setInput,                                                                // ฟังก์ชันสำหรับตั้งค่า input
     sendMessage,                                                             // ฟังก์ชันสำหรับส่งข้อความ
-    stopMessage,                                                             // ฟังก์ชันสำหรับหยุดการส่งข้อความ
+    // stopMessage,                                                             // ฟังก์ชันสำหรับหยุดการส่งข้อความ
     loadChatHistory,                                                         // ฟังก์ชันสำหรับโหลดประวัติ
     loadingHistory,                                                          // สถานะการโหลดประวัติ
     historyError,                                                            // ข้อผิดพลาดในการโหลดประวัติ
@@ -221,9 +221,9 @@ export function ChatHistory({ sessionId, title, userId }: ChatHistoryProps) {
     sendMessage(input)                                                       // ฟังก์ชันจาก useChatHistory hook
   }
 
-  const handleStop = () => {
-    stopMessage()                                                            // หยุดการส่งข้อความ
-  }
+  // const handleStop = () => {
+  //   stopMessage()                                                            // หยุดการส่งข้อความ
+  // }
 
   // ============================================================================
   // STEP 4: AUTHENTICATION GUARD - การตรวจสอบสิทธิ์การเข้าถึง
@@ -638,7 +638,7 @@ export function ChatHistory({ sessionId, title, userId }: ChatHistoryProps) {
                   <Button
                     size="icon"
                     disabled={(!loading && (!input.trim() || !userId))}
-                    onClick={loading ? handleStop : onSubmit}
+                    // onClick={loading ? handleStop : onSubmit}
                     className="size-9 rounded-full"
                     variant={loading ? 'destructive' : 'default'}
                   >
