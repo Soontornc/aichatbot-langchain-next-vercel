@@ -1,0 +1,39 @@
+import type { Metadata } from "next"
+import { Anuphan, Inter } from "next/font/google"
+import "./globals.css"
+import { ThemeProvider } from "@/lib/theme-provider"
+import "katex/dist/katex.min.css"
+
+const anuphan = Anuphan({
+  variable: "--font-anuphan",
+  subsets: ["latin"],
+})
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+})
+
+export const metadata: Metadata = {
+  title: "AI Chatbot with Langchain and Next.js",
+  description: "A simple AI chatbot application built with Langchain and Next.js.",
+}
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+     <html lang="en">
+      <body className={`${anuphan.variable} ${inter.variable}`}>
+        <ThemeProvider
+          defaultTheme="system"
+          storageKey="ai-chatbot-theme"
+        >
+          {children}
+        </ThemeProvider>
+      </body>
+    </html>
+  )
+}
